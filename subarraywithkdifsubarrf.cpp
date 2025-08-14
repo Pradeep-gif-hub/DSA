@@ -1,20 +1,21 @@
-#include<iostream>
-#include<vector>
-#include<algorithm>
-#include<unordered_map>
-#include<unordered_set>
-using namespace std;
-int subwithk(string s, int k){
-    vector<pair<char,char>>arr;
-    for(int i=0;i<s.size();i++){
-        for(int j=0;j<s.size();j++){
-            arr.push_back({s[i],s[j]});
+class Solution {
+public:
+    int atMost(vector<int>& nums, int k) {
+        unordered_map<int, int> freq;
+        int left = 0, res = 0;
+        for (int right = 0; right < nums.size(); right++) {
+            if (freq[nums[right]] == 0) k--;
+            freq[nums[right]]++;
+            while (k < 0) {
+                freq[nums[left]]--;
+                if (freq[nums[left]] == 0) k++;
+                left++;
+            }
+            res += right - left + 1;
         }
+        return res;
     }
-    for(int i=0;i<s.size();i++){
-
-    unordered_set<int> distinct(arr.begin(), arr.end());
-    if()
-
-
-}
+    int subarraysWithKDistinct(vector<int>& nums, int k) {
+        return atMost(nums, k) - atMost(nums, k - 1);
+    }
+};
