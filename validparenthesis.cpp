@@ -13,7 +13,7 @@ bool isvalidparenthesis(string s){
             char top = st.top();
             st.pop();
             if((c == ')' && top != '(') ||
-               (c == '}' && top != '{') ||
+               (c == '}' && top != '{') ||  
                (c == ']' && top != '[')){
                 return false;
             }
