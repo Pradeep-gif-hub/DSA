@@ -12,7 +12,7 @@
             for(int i=n-2;i>=0;i--){
                 rightarr[i]=max(rightarr[i+1],height[i]);
             }
-            int water=0;
+            int water=0;    
             for(int i=0;i<n;i++){
                 water+=min(leftarr[i],rightarr[i])-height[i]; 
             }
