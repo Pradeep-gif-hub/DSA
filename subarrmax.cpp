@@ -14,7 +14,7 @@ int maxsub(vector<int>&arr){
                 ans.push_back(maxm);
 
             }
-        totl+=maxm;
+        int total+=maxm;
         }
     }
     return total;
